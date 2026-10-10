@@ -32,7 +32,7 @@ jobs:
           pip install pyinstaller
       - name: Build EXE
         working-directory: desktop_client
-        run: pyinstaller --noconfirm --clean --onefile --windowed --name TRELLIS2-Desktop app.py
+        run: pyinstaller --noconfirm --clean --onefile --windowed --collect-data gradio_client --collect-data safehttpx --name TRELLIS2-Desktop app.py
       - name: Upload EXE artifact
         uses: actions/upload-artifact@v4
         with:
