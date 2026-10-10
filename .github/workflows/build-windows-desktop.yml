@@ -14,8 +14,12 @@ jobs:
   build:
     runs-on: windows-latest
     steps:
-      - name: Checkout repository
+      - name: Checkout desktop client
         uses: actions/checkout@v4
+        with:
+          sparse-checkout: |
+            desktop_client
+          sparse-checkout-cone-mode: true
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
